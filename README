@@ -1,21 +1,21 @@
-== Go
+== Golang
 (a TextMate 2 language bundle)
-Version 2.0.1
+Version 2.1.0
 
 === Installation
+TextMate by default will detect .go files and load Jim Dovey's bundle. This is a fork with additional improvements merged from around the community.
 
-The easiest way to install this bundle is to let TextMate 2 do the work for you: create a new .go file and open it in TextMate. The application will then suggest the Go language format and will download and install the bundle for you.
+To install this bundle manually, open a Terminal window and do:
 
-If you'd rather do things manually, or if you want to make changes to the repository, then in a Terminal window do:
-
-    mkdir ~/Library/Application\ Support/Avian/Bundles
+	mkdir ~/Library/Application\ Support/Avian/Bundles
     cd ~/Library/Application\ Support/Avian/Bundles
-    git clone git://github.com/AlanQuatermain/go-tmbundle.git Go.tmbundle
+    git clone git://github.com/syscruser/golang.tmbundle.git
 
+This bundle uses gocode for completion, which can be installed via:
+	go get -u github.com/nsf/gocode
+	
 === Features
-The bundle here implements a language syntax, some snippets, and some compile/format/documentation commands for the Go language (http://golang.org/). Much of the current infrastructure was created by Martin Kühl (http://github.com/mkhl), who is a significantly more seasoned TextMate bundle developer than I, and to whom I am eternally grateful.
-
-Support for Go 1.0 was provided by Jeremy Whitlock (http://github.com/whitlockjc) and Michael Sheets (http://github.com/infininight), with additional code and fixes from Sylvain Defresne (http://github.com/sdefresne), liuyork (http://github.com/liuyork), and Alexey Palazhchenko (http://github.com/AlekSi).
+The bundle implements language syntax, completion via gocode, some snippets, and some compile/format/documentation commands for the Go language (http://golang.org/). 
 
 === Snippets
 
@@ -24,6 +24,8 @@ Support for Go 1.0 was provided by Jeremy Whitlock (http://github.com/whitlockjc
 [,]             A pair ('first, second'), suitable for declaring result variables from a multi-return-value function or a map range loop.
 [<]             Send/receive through a channel. Provides tab stops for the value and the channel name.
 [def]           A default clause within a switch.
+[fmt]			fmt.Println with tab stop for interface
+[fmt.]			fmt.Printf with tab stops for string and interface
 [in]            An empty interface type (i.e. matches anything).
 [imp]           An import statement with optional alternative name.
 [imps]          A multiple-import statement.
@@ -37,7 +39,7 @@ Support for Go 1.0 was provided by Jeremy Whitlock (http://github.com/whitlockjc
 [con]           A single constant declaration.
 [cons]          A multiple constant declaration block.
 [fun]           A function type definition statement.
-[int]           An interface definition with a single method.
+[inte]           An interface definition with a single method.
 [mk]            A make statement (used for creating & initializing channels, maps, etc.).
 [map]           A map variable type; expands to 'map[+keytype+]+valuetype+'.
 [new]           A new statement (used to create & initialize structure types).
@@ -75,11 +77,13 @@ Support for Go 1.0 was provided by Jeremy Whitlock (http://github.com/whitlockjc
 [<ESC>]         Complete the symbol under the cursor.
 
 === Thanks
+This is a fork from Jim Dovey (https://github.com/AlanQuatermain) who has done most of the work in maintaining the bundle and deserves everyone's gratitude. The following are his attributions for this bundle.
+
+Much of the current infrastructure was created by Martin Kühl (http://github.com/mkhl), who is a significantly more seasoned TextMate bundle developer than I, and to whom I am eternally grateful.
+
+Support for Go 1.0 was provided by Jeremy Whitlock (http://github.com/whitlockjc) and Michael Sheets (http://github.com/infininight), with additional code and fixes from Sylvain Defresne (http://github.com/sdefresne), liuyork (http://github.com/liuyork), and Alexey Palazhchenko (http://github.com/AlekSi).
+
 Thanks be to lasersox and Infininight over at the #textmate room on IRC (irc://irc.freenode.net/textmate) for all their help in cleaning up this here bundle, and for helping me to optimize my regex use in the language grammar.
 Thanks to Martin Kühl for his extensive additions to this project's snippets and commands. Also Infininight's work on updating the bundle to use the TextMate's new Ruby interface and Jeremy & Sylvain's work on supporting Go 1.0 has been invaluable. Their assistance and stewardship while I've been deep in the world of Objective-C is very much appreciated.
-
-=== Contact Information
-
-You can contact me through github, or you can ping me on Twitter or alpha.app.net as 'alanQuatermain'.
 
 Happy coding :)

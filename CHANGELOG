@@ -1,3 +1,11 @@
+=== 2.1.0 / 2014-06-24
+[https://github.com/syscrusher/golang.tmbundle/commit/837db2d67b3507ffcb26bb257fe965e2d2131460]
+	*jish* <em>Add Printf and Println snippets, fix int and interface snippets</em>
+[https://github.com/syscrusher/golang.tmbundle/pull/3]
+	*ifininight* <em>Ruby 1.8 shim for compatibility</em>
+[https://github.com/syscrusher/golang.tmbundle/commit/c338ac82cd977e4d3bd91f26da55a9c6e405fa9e]
+	*tomaszj* <em>Allow gocode paths with spaces</em>
+
 === 2.0.1 / 2012-10-22
 * Fixed code-completion with a single result: no longer puts single completions at end of file.
 
