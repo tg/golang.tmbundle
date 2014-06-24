@@ -3,16 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>interface {
-	${0:method}
-}</string>
+	<string>fmt.Println(${1:"${2:Hello World!}"})$0</string>
 	<key>name</key>
-	<string>Interface</string>
+	<string>Print line</string>
 	<key>scope</key>
 	<string>source.go</string>
 	<key>tabTrigger</key>
-	<string>inte</string>
+	<string>fmt</string>
 	<key>uuid</key>
-	<string>96C65CC5-19C3-4B73-A66B-F9C80B98DE54</string>
+	<string>F5E717F6-A08B-4766-B1D5-0E43C796FDE1</string>
 </dict>
 </plist>
