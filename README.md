@@ -14,10 +14,11 @@ git clone git://github.com/syscrusher/golang.tmbundle.git
 ```
 
 
-This bundle uses gocode for completion, which can be installed via:
+This bundle uses gocode for completion and godoc for documentation, which can be installed with:
 
 ```Shell
 go get -u github.com/nsf/gocode
+go get -u code.google.com/p/go.tools/cmd/godoc
 ```
 
 ### Features
