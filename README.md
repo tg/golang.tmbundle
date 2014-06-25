@@ -1,7 +1,5 @@
-## Golang
-(a TextMate 2 language bundle)
-
-Version 2.1.1
+## golang.tmbundle vX.X.X
+(a TextMate 2 bundle for the go programming language)
 
 ### Installation
 TextMate by default will detect .go files and load [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle). This is a fork with additional improvements merged from around the community.

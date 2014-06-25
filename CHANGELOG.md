@@ -1,3 +1,8 @@
+###X.X.X / XXXX-XX-XX
+Planned: 
+- Rework some snippets, like a single import without an alias
+- Add support for all go tools like fix, vet, lint, oracle
+
 ###2.1.1 / 2014-06-24
 - [FIX: gofmt no longer supports -tabwidth or -tabs](https://github.com/syscrusher/golang.tmbundle/commit/122fb557211f3c0db5421cf1288f5b5ebd6bb338)
 
