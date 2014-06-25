@@ -1,6 +1,7 @@
 ## Golang
 (a TextMate 2 language bundle)
-Version 2.1.0
+
+Version 2.1.1
 
 ### Installation
 TextMate by default will detect .go files and load [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle). This is a fork with additional improvements merged from around the community.
@@ -11,7 +12,7 @@ To install this bundle manually, open a Terminal window and do:
 ```Shell
 mkdir ~/Library/Application\ Support/Avian/Bundles
 cd ~/Library/Application\ Support/Avian/Bundles
-git clone git://github.com/syscruser/golang.tmbundle.git
+git clone git://github.com/syscrusher/golang.tmbundle.git
 ```
 
 

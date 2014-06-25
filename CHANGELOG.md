@@ -1,3 +1,6 @@
+###2.1.1 / 2014-06-24
+- [FIX: gofmt no longer supports -tabwidth or -tabs](https://github.com/syscrusher/golang.tmbundle/commit/122fb557211f3c0db5421cf1288f5b5ebd6bb338)
+
 ###2.1.0 / 2014-06-24
 Merged improvements and fixes from around the community:
 
