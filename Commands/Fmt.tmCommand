@@ -17,7 +17,7 @@ Go::gofmt
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>Reformat Document</string>
+	<string>Fmt</string>
 	<key>outputCaret</key>
 	<string>interpolateByLine</string>
 	<key>outputFormat</key>
