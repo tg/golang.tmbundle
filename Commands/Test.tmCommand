@@ -19,7 +19,7 @@ Go::go "test", :verb =&gt; "Testing"
 	<key>keyEquivalent</key>
 	<string>@R</string>
 	<key>name</key>
-	<string>Run Tests</string>
+	<string>Test</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
