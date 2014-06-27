@@ -10,8 +10,7 @@
 	<string>#!/usr/bin/env ruby18
 
 require "#{ENV['TM_BUNDLE_SUPPORT']}/gomate"
-Go::go "build", :verb =&gt; "Compiling"
-</string>
+Go::go "build", :verb =&gt; "Building"</string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
@@ -19,7 +18,7 @@ Go::go "build", :verb =&gt; "Compiling"
 	<key>keyEquivalent</key>
 	<string>@b</string>
 	<key>name</key>
-	<string>Compile</string>
+	<string>Building</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
