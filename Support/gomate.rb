@@ -22,11 +22,10 @@ module Go
     opts = {:use_hashbang => false, :version_args => ['version'], :version_regex => /\Ago version (.*)/}
     opts[:verb] = options[:verb] if options[:verb]
 
-    if command == 'test' && ENV['TM_FILENAME'] =~ /(_test)?(\.go)$/
-      basename = $`
-      args.push("-v")
-      args.push("#{basename}.go")
-      args.push("#{basename}_test.go")
+    if command == 'run'
+      file_length = ENV['TM_DIRECTORY'].length + 1
+      go_file = ENV['TM_FILEPATH'][file_length..-1]
+      args.push(go_file)
       opts[:chdir] = ENV['TM_DIRECTORY']
     else
       # Default to running against directory, which in go should be the package
@@ -35,6 +34,7 @@ module Go
       opts[:chdir] = ENV['TM_DIRECTORY']
       pkg_length = ENV['GOPATH'].length + 4 # GOPATH + /src/
       go_pkg = ENV['TM_DIRECTORY'][pkg_length..-1] # subtract above, is pkg name
+      args.push("-v") # list packages being operated on
       args.push(go_pkg)
     end
     args.push(opts)
