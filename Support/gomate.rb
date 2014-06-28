@@ -10,7 +10,7 @@ require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
 # TextMate's special GOPATH used in .tm_properties files prepended to the environment's GOPATH
 ENV['GOPATH'] = (ENV.has_key?('TM_GOPATH') ? ENV['TM_GOPATH'] : '') +
                 (ENV.has_key?('GOPATH') ? ':' + ENV['GOPATH'] : '')
-
+                
 module Go
   def Go::go(command, options={})
     # TextMate's special TM_GO or expect 'go' on PATH
@@ -29,9 +29,13 @@ module Go
       args.push("#{basename}_test.go")
       opts[:chdir] = ENV['TM_DIRECTORY']
     else
-      # At this time, we will always run 'go' against a single file.  In the future there may be new
-      # commands that will invalidate this but until then, might as well start simple.
-      args.push(ENV['TM_FILEPATH'])
+      # Default to running against directory, which in go should be the package
+      # Useful for more cases, like install and build
+      # Assumes a standard setup and may not function with all pkg managers
+      opts[:chdir] = ENV['TM_DIRECTORY']
+      pkg_length = ENV['GOPATH'].length + 4 # GOPATH + /src/
+      go_pkg = ENV['TM_DIRECTORY'][pkg_length..-1] # subtract above, is pkg name
+      args.push(go_pkg)
     end
     args.push(opts)
 
