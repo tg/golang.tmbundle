@@ -4,6 +4,10 @@
 ### Installation
 TextMate by default will detect .go files and load [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle). This is a fork with additional improvements merged from around the community.
 
+Big changes from the default version:
+- go test, build, run, and install all operate on the package level instead of per file
+- added println and and printf snippets
+- bugfixes
 
 To install this bundle manually, open a Terminal window and do:
 
