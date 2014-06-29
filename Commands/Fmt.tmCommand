@@ -2,49 +2,47 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>autoScrollOutput</key>
-	<true/>
 	<key>beforeRunningCommand</key>
 	<string>saveModifiedFiles</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby18
 
 require "#{ENV['TM_BUNDLE_SUPPORT']}/gomate"
-Go::go "build", :verb =&gt; "Compiling"
+Go::gofmt
 </string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@b</string>
+	<string>^H</string>
 	<key>name</key>
-	<string>Compile</string>
+	<string>Fmt</string>
 	<key>outputCaret</key>
-	<string>afterOutput</string>
+	<string>interpolateByLine</string>
 	<key>outputFormat</key>
-	<string>html</string>
+	<string>text</string>
 	<key>outputLocation</key>
-	<string>newWindow</string>
+	<string>replaceDocument</string>
 	<key>requiredCommands</key>
 	<array>
 		<dict>
 			<key>command</key>
-			<string>go</string>
+			<string>gofmt</string>
 			<key>locations</key>
 			<array>
-				<string>/opt/local/bin/go</string>
-				<string>/usr/local/bin/go</string>
-				<string>/usr/local/go/bin/go</string>
+				<string>/opt/local/bin/gofmt</string>
+				<string>/usr/local/bin/gofmt</string>
+				<string>/usr/local/go/bin/gofmt</string>
 			</array>
 			<key>variable</key>
-			<string>TM_GO</string>
+			<string>TM_GOFMT</string>
 		</dict>
 	</array>
 	<key>scope</key>
 	<string>source.go</string>
 	<key>uuid</key>
-	<string>73628139-0077-4F09-9B72-77546D7C2D2D</string>
+	<string>B0271A46-F6EF-4D2F-95A6-EC067E69155C</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>

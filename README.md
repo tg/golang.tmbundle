@@ -1,11 +1,13 @@
-## Golang
-(a TextMate 2 language bundle)
-
-Version 2.1.1
+## golang.tmbundle v3.0.0
+(a TextMate 2 bundle for the go programming language)
 
 ### Installation
 TextMate by default will detect .go files and load [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle). This is a fork with additional improvements merged from around the community.
 
+Big changes from the default version:
+- go test, build, run, and install all operate on the package level instead of per file
+- added println and and printf snippets
+- bugfixes
 
 To install this bundle manually, open a Terminal window and do:
 
@@ -16,10 +18,11 @@ git clone git://github.com/syscrusher/golang.tmbundle.git
 ```
 
 
-This bundle uses gocode for completion, which can be installed via:
+This bundle uses gocode for completion and godoc for documentation, which can be installed with:
 
 ```Shell
 go get -u github.com/nsf/gocode
+go get -u code.google.com/p/go.tools/cmd/godoc
 ```
 
 ### Features

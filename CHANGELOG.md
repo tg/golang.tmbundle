@@ -1,3 +1,16 @@
+Planned:
+- Rework some snippets, like a single import without an alias
+- Add support for all go tools like fix, vet, lint, oracle
+
+###3.0.0 / 2014-06-28
+Default behavior of some commands has changed, so the version was incremented a major number to indicate backwards-incompatible behavior
+
+- [Install, Build, Test, and Run commands all operate on current package instead of current file](https://github.com/syscrusher/golang.tmbundle/commit/be18b3daa5335e095943e3f155930b80c0bfcf82)
+- [Rename "Compile" to "Build" to match go tool](https://github.com/syscrusher/golang.tmbundle/commit/403d900131e04fcf5403c2643e735ade62816e3c)
+- [Simplify go fmt, make idiomatic](https://github.com/syscrusher/golang.tmbundle/commit/403d900131e04fcf5403c2643e735ade62816e3c)
+- [Add go install command](https://github.com/syscrusher/golang.tmbundle/commit/403d900131e04fcf5403c2643e735ade62816e3c)
+- [Add godoc dependency](https://github.com/syscrusher/golang.tmbundle/commit/cab9712e926e5dd60fd97402f2db45db3c82e49c)
+
 ###2.1.1 / 2014-06-24
 - [FIX: gofmt no longer supports -tabwidth or -tabs](https://github.com/syscrusher/golang.tmbundle/commit/122fb557211f3c0db5421cf1288f5b5ebd6bb338)
 
