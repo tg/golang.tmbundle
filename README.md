@@ -1,4 +1,4 @@
-## golang.tmbundle vX.X.X
+## golang.tmbundle v3.0.0
 (a TextMate 2 bundle for the go programming language)
 
 ### Installation
