@@ -22,11 +22,13 @@ module Go
     opts = {:use_hashbang => false, :version_args => ['version'], :version_regex => /\Ago version (.*)/}
     opts[:verb] = options[:verb] if options[:verb]
 
-    if command == 'run'
-      file_length = ENV['TM_DIRECTORY'].length + 1
-      go_file = ENV['TM_FILEPATH'][file_length..-1]
-      args.push(go_file)
-      opts[:chdir] = ENV['TM_DIRECTORY']
+    directory = ENV['TM_DIRECTORY']
+    if directory
+      opts[:chdir] = directory
+    end
+
+    if command == 'run' || !directory
+      args.push(ENV['TM_FILEPATH'])
     else
       # Default to running against directory, which in go should be the package
       # Useful for more cases, like install and build
