@@ -10,7 +10,7 @@ require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
 # TextMate's special GOPATH used in .tm_properties files prepended to the environment's GOPATH
 ENV['GOPATH'] = (ENV.has_key?('TM_GOPATH') ? ENV['TM_GOPATH'] : '') +
                 (ENV.has_key?('GOPATH') ? ':' + ENV['GOPATH'] : '')
-                
+
 module Go
   def Go::go(command, options={})
     # TextMate's special TM_GO or expect 'go' on PATH
@@ -90,5 +90,24 @@ module Go
       TextMate::Executor.run(*args)
       TextMate.exit_show_html
     end
+  end
+
+  def Go::gocompile
+    cmd = "#{ENV['TM_BUNDLE_SUPPORT']}/compile.py"
+    TextMate.save_if_untitled('go')
+
+    args = []
+    opts = {:verb => "Compiling", :use_hashbang => false}
+
+    directory = ENV['TM_DIRECTORY']
+    if directory
+      opts[:chdir] = directory
+      args.push(".")
+    else
+      args.push(ENV['TM_FILEPATH'])
+    end
+
+    args.push(opts)
+    TextMate::Executor.run(cmd, *args)
   end
 end
