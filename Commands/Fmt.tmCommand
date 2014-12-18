@@ -3,13 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>saveModifiedFiles</string>
+	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby18
+	<string>#!/usr/bin/env bash
+. "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
-require "#{ENV['TM_BUNDLE_SUPPORT']}/gomate"
-Go::gofmt
-</string>
+(eval "${TM_GOFMT:-gofmt}") || exit_show_tool_tip</string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
@@ -41,6 +40,8 @@ Go::gofmt
 	</array>
 	<key>scope</key>
 	<string>source.go</string>
+	<key>semanticClass</key>
+	<string>callback.document.will-save</string>
 	<key>uuid</key>
 	<string>B0271A46-F6EF-4D2F-95A6-EC067E69155C</string>
 	<key>version</key>
