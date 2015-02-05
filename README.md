@@ -5,9 +5,9 @@
 TextMate by default will detect .go files and load [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle). This is a fork with additional improvements merged from around the community.
 
 Big changes from the default version:
-- all non-run go commands operate on the current directory instead of per file (thanks @tg)
-- run and build work on unsaved files (thanks @tg)
-- added print, println, printf, and fprintf snippets (thanks @jish)
+- all non-run go commands operate on the current directory instead of per file (thanks [tg](https://github.com/tg))
+- run and build work on unsaved files (thanks [tg](https://github.com/tg))
+- added print, println, printf, and fprintf snippets (thanks [jish](https://github.com/jish))
 - bugfixes
 
 To install this bundle manually, open a Terminal window and do:
