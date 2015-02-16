@@ -2,6 +2,12 @@ Planned:
 - Rework some snippets, like a single import without an alias
 - Add support for all go tools like fix, vet, lint, oracle
 
+###3.1.0 / 2015-02-04
+- [Run all non-run commands against current directory @tg](https://github.com/syscrusher/golang.tmbundle/commit/d3f09ee3bbe5fba76964e1bdc23e7d7247b733ee)
+- [Allow run and build on unsaved files @tg](https://github.com/syscrusher/golang.tmbundle/commit/4809d74ea36654bdd9a2475ded6f729eb3082b65)
+- [Add fmt.Print snippet @jish](https://github.com/syscrusher/golang.tmbundle/commit/f73850c2774b1bbe6c7ecec40e4bbbb376fa1225)
+- [Add fmt.Fprintf snippet](https://github.com/syscrusher/golang.tmbundle/commit/ead451fa74a98628ddeb50ab6d901be18b60bba7)
+
 ###3.0.0 / 2014-06-28
 Default behavior of some commands has changed, so the version was incremented a major number to indicate backwards-incompatible behavior
 
