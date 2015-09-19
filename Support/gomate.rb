@@ -9,8 +9,7 @@ require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
 
 # TextMate's special GOPATH used in .tm_properties files prepended to the environment's GOPATH
 ENV['GOPATH'] = (ENV.has_key?('TM_GOPATH') ? ENV['TM_GOPATH'] : '') +
-                (ENV.has_key?('GOPATH') ? ':' + ENV['GOPATH'] : '')
-                
+                (ENV.has_key?('GOPATH') ? ':' + ENV['GOPATH'] : '').sub(/^:+/,'')
 module Go
   def Go::go(command, options={})
     # TextMate's special TM_GO or expect 'go' on PATH
