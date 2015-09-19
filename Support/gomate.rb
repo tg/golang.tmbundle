@@ -9,7 +9,7 @@ require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
 
 # TextMate's special GOPATH used in .tm_properties files prepended to the environment's GOPATH
 ENV['GOPATH'] = (ENV.has_key?('TM_GOPATH') ? ENV['TM_GOPATH'] : '') +
-                (ENV.has_key?('GOPATH') ? ':' + ENV['GOPATH'] : '')
+                (ENV.has_key?('GOPATH') ? ':' + ENV['GOPATH'] : '').sub(/^:+/,'')
 
 # Call tool to determine gopath
 if ENV.has_key?('TM_GO_DYNAMIC_GOPATH')
