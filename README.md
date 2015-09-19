@@ -1,11 +1,14 @@
-## golang.tmbundle v3.1.0
+## golang.tmbundle v3.2.0
 (a TextMate 2 bundle for the go programming language)
 
 ### Installation
 TextMate by default will detect .go files and load [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle). This is a fork with additional improvements merged from around the community.
 
 Big changes from the default version:
-- all non-run go commands operate on the current directory instead of per file (thanks [tg](https://github.com/tg))
+- Support for goimports (thanks [fmccann](https://github.com/fmccann))
+- Support for golint (thanks [fmccann](https://github.com/fmccann))
+- Users can supply commands via ENV variables (TM\_GO\_DYNAMIC\_GOPATH, TM\_GO\_DYNAMIC\_PKG, TM\_GO\_DYNAMIC\_PKG\_PATH). The bundle will consult these commands if defined to dynamically change the gopath or package based on the current directory. (thanks [fmccann](https://github.com/fmccann))
+- all non-run go commands operate on the current directory instead of per file if the package is not defined dynamically. (thanks [tg](https://github.com/tg)).
 - run and build work on unsaved files (thanks [tg](https://github.com/tg))
 - added print, println, printf, and fprintf snippets (thanks [jish](https://github.com/jish))
 - bugfixes
@@ -13,8 +16,8 @@ Big changes from the default version:
 To install this bundle manually, open a Terminal window and do:
 
 ```Shell
-mkdir ~/Library/Application\ Support/Avian/Bundles
-cd ~/Library/Application\ Support/Avian/Bundles
+mkdir -p ~/Library/Application\ Support/Avian/Pristine\ Copy/Bundles
+cd ~/Library/Application\ Support/Avian/Pristine\ Copy/Bundles
 git clone git://github.com/syscrusher/golang.tmbundle.git
 ```
 
@@ -26,8 +29,20 @@ go get -u github.com/nsf/gocode
 go get -u code.google.com/p/go.tools/cmd/godoc
 ```
 
+This bundle uses goimports for cleaning up imports and reformatting code, which can be installed with:
+
+```Shell
+go get -u go get golang.org/x/tools/cmd/goimports
+```
+
+This bundle uses golint for linting code, which can be installed with:
+
+```Shell
+go get -u github.com/golang/lint/golint
+```
+
 ### Features
-The bundle implements language syntax, completion via gocode, some snippets, and some compile/format/documentation commands for the [Go language](http://golang.org/). 
+The bundle implements language syntax, completion via gocode, some snippets, and some compile/format/documentation commands for the [Go language](http://golang.org/).
 
 ### Snippets
 

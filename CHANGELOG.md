@@ -2,6 +2,16 @@ Planned:
 - Rework some snippets, like a single import without an alias
 - Add support for all go tools like fix, vet, lint, oracle
 
+###3.2.0 / 2015-09-18
+- [Support for dynamically determining gopath, package name, and package path @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/49440460f058e80ccf0f2bd44891b48164091128)
+- [Support for golint and goimports @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/49440460f058e80ccf0f2bd44891b48164091128)
+- [Display package name when running command against package name @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/49440460f058e80ccf0f2bd44891b48164091128)
+- [Allow run and build on unsaved files @tg](https://github.com/syscrusher/golang.tmbundle/commit/4809d74ea36654bdd9a2475ded6f729eb3082b65)
+- [Fmt updates document without saving the current version @tg](https://github.com/syscrusher/golang.tmbundle/commit/998d17a9f8024b2c6571f242d2d93f44723c3e87)
+- [Automatically format documents on save @tg](https://github.com/syscrusher/golang.tmbundle/commit/8e6a71b1f8e986b7644c3286c1f4c538dc1345ec)
+- [Add fmt.Print snippet @jish](https://github.com/syscrusher/golang.tmbundle/commit/f73850c2774b1bbe6c7ecec40e4bbbb376fa1225)
+- [Add fmt.Fprintf snippet](https://github.com/syscrusher/golang.tmbundle/commit/ead451fa74a98628ddeb50ab6d901be18b60bba7)
+
 ###3.1.0 / 2015-02-04
 - [Run all non-run commands against current directory @tg](https://github.com/syscrusher/golang.tmbundle/commit/d3f09ee3bbe5fba76964e1bdc23e7d7247b733ee)
 - [Allow run and build on unsaved files @tg](https://github.com/syscrusher/golang.tmbundle/commit/4809d74ea36654bdd9a2475ded6f729eb3082b65)
@@ -106,6 +116,6 @@ Imported some community additions and bugfixes to bring compatibility with OS X 
 - Variable initialization is FINALLY matching correctly. Should work for every style & number of variables, even in-line in loop statements.
 - Matches exported variable names correctly (i.e. those beginning with an uppercase letter).
 - Dot-accessed variable match no longer consumes the preceding '.' character.
- 
+
 ###0.1.0 / 2009-11-14
 - Initial Revision
