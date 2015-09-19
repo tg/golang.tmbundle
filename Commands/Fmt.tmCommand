@@ -40,6 +40,8 @@
 	</array>
 	<key>scope</key>
 	<string>source.go</string>
+	<key>semanticClass</key>
+	<string>callback.document.will-save</string>
 	<key>uuid</key>
 	<string>B0271A46-F6EF-4D2F-95A6-EC067E69155C</string>
 	<key>version</key>
