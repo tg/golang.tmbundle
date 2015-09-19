@@ -70,24 +70,4 @@ module Go
       TextMate.exit_show_tool_tip(err)
     end
   end
-
-  def Go::gofmt
-    # TextMate's special TM_GOFMT or expect 'gofmt' on PATH
-    gofmt_cmd = ENV['TM_GOFMT'] || 'gofmt'
-    TextMate.save_if_untitled('go')
-
-    args = []
-    args.push(gofmt_cmd)
-    args.push(ENV['TM_FILEPATH'])
-
-    out, err = TextMate::Process.run(*args)
-
-    if err.nil? || err == ''
-      puts out
-    else
-      args << {:use_hashbang => false, :version_args => ['version'], :version_regex => /\Ago version (.*)/}
-      TextMate::Executor.run(*args)
-      TextMate.exit_show_html
-    end
-  end
 end
