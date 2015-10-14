@@ -32,7 +32,7 @@ go get -u code.google.com/p/go.tools/cmd/godoc
 This bundle uses goimports for cleaning up imports and reformatting code, which can be installed with:
 
 ```Shell
-go get -u go get golang.org/x/tools/cmd/goimports
+go get -u golang.org/x/tools/cmd/goimports
 ```
 
 This bundle uses golint for linting code, which can be installed with:
