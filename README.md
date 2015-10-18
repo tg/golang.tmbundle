@@ -26,7 +26,7 @@ This bundle uses gocode for completion and godoc for documentation, which can be
 
 ```Shell
 go get -u github.com/nsf/gocode
-go get -u code.google.com/p/go.tools/cmd/godoc
+go get -u golang.org/x/tools/cmd/godoc
 ```
 
 This bundle uses goimports for cleaning up imports and reformatting code, which can be installed with:
