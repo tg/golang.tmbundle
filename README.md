@@ -1,17 +1,17 @@
-## golang.tmbundle v3.2.0
+## golang.tmbundle v3.2.1
 (a TextMate 2 bundle for the go programming language)
 
 ### Installation
 TextMate by default will detect .go files and load [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle). This is a fork with additional improvements merged from around the community.
 
 Big changes from the default version:
-- Support for goimports (thanks [fmccann](https://github.com/fmccann))
-- Support for golint (thanks [fmccann](https://github.com/fmccann))
+- Support for goimports and golint (thanks [fmccann](https://github.com/fmccann))
 - Users can supply commands via ENV variables (TM\_GO\_DYNAMIC\_GOPATH, TM\_GO\_DYNAMIC\_PKG, TM\_GO\_DYNAMIC\_PKG\_PATH). The bundle will consult these commands if defined to dynamically change the gopath or package based on the current directory. (thanks [fmccann](https://github.com/fmccann))
 - all non-run go commands operate on the current directory instead of per file if the package is not defined dynamically. (thanks [tg](https://github.com/tg)).
 - run and build work on unsaved files (thanks [tg](https://github.com/tg))
 - added print, println, printf, and fprintf snippets (thanks [jish](https://github.com/jish))
-- bugfixes
+- HiDPI completion icons (thanks [msoap](https://github.com/syscrusher/golang.tmbundle/commits/master?author=msoap))
+- bugfixes (thanks everyone!)
 
 To install this bundle manually, open a Terminal window and do:
 
@@ -22,22 +22,12 @@ git clone git://github.com/syscrusher/golang.tmbundle.git
 ```
 
 
-This bundle uses gocode for completion and godoc for documentation, which can be installed with:
+This bundle uses gocode for completion, godoc for documentation, golint for linting, and goimports for automatic imports and formatting. These can be installed with the following commands:
 
 ```Shell
 go get -u github.com/nsf/gocode
 go get -u golang.org/x/tools/cmd/godoc
-```
-
-This bundle uses goimports for cleaning up imports and reformatting code, which can be installed with:
-
-```Shell
 go get -u golang.org/x/tools/cmd/goimports
-```
-
-This bundle uses golint for linting code, which can be installed with:
-
-```Shell
 go get -u github.com/golang/lint/golint
 ```
 

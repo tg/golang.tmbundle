@@ -1,16 +1,19 @@
 Planned:
 - Rework some snippets, like a single import without an alias
-- Add support for all go tools like fix, vet, lint, oracle
+- Add support for all go tools like fix, vet, oracle
+
+### 3.2.1 / 2015-10-18
+- [Changed icons for completion menu to HiDPI version @msoap](https://github.com/syscrusher/golang.tmbundle/commit/6201a07c52595cc48f60691eedca973a8121152a)
+- [New path to godoc @msoap](https://github.com/syscrusher/golang.tmbundle/commit/f7e24e69d6d099597757754c7097670bd76fac31)
+- [FIx duplicate `go get` in imports statement](https://github.com/syscrusher/golang.tmbundle/commit/0fa56a57877e7e947ac338c34438e3c906e430aa)
 
 ###3.2.0 / 2015-09-18
-- [Support for dynamically determining gopath, package name, and package path @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/49440460f058e80ccf0f2bd44891b48164091128)
-- [Support for golint and goimports @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/49440460f058e80ccf0f2bd44891b48164091128)
-- [Display package name when running command against package name @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/49440460f058e80ccf0f2bd44891b48164091128)
-- [Allow run and build on unsaved files @tg](https://github.com/syscrusher/golang.tmbundle/commit/4809d74ea36654bdd9a2475ded6f729eb3082b65)
+- [Support for dynamically determining gopath, package name, and package path @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/26538901bcb6253660bf4fab52dbc336ed984e2c)
+- [Support for golint and goimports @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/26538901bcb6253660bf4fab52dbc336ed984e2c)
+- [Display package name when running command against package name @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/26538901bcb6253660bf4fab52dbc336ed984e2c)
 - [Fmt updates document without saving the current version @tg](https://github.com/syscrusher/golang.tmbundle/commit/998d17a9f8024b2c6571f242d2d93f44723c3e87)
 - [Automatically format documents on save @tg](https://github.com/syscrusher/golang.tmbundle/commit/8e6a71b1f8e986b7644c3286c1f4c538dc1345ec)
-- [Add fmt.Print snippet @jish](https://github.com/syscrusher/golang.tmbundle/commit/f73850c2774b1bbe6c7ecec40e4bbbb376fa1225)
-- [Add fmt.Fprintf snippet](https://github.com/syscrusher/golang.tmbundle/commit/ead451fa74a98628ddeb50ab6d901be18b60bba7)
+- [Remove leading path separator (:) from GOPATH @tg](https://github.com/syscrusher/golang.tmbundle/commit/cf4a25062bf453ca1a46a4ad7ef7ff01740f350b)
 
 ###3.1.0 / 2015-02-04
 - [Run all non-run commands against current directory @tg](https://github.com/syscrusher/golang.tmbundle/commit/d3f09ee3bbe5fba76964e1bdc23e7d7247b733ee)
