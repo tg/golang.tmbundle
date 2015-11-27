@@ -28,7 +28,7 @@ TextMate.exit_show_tool_tip("No completions found.") if output.length == 0
 # set up images for use by DIALOG
 # this probably should be done only once, somehow.
 icon_plist = "{ " + [ "const", "func", "package", "type", "var" ].map { |v| 
-  "#{v} = '#{ENV['TM_BUNDLE_SUPPORT']}/icons/#{v}.png';"
+  "#{v} = '#{ENV['TM_BUNDLE_SUPPORT']}/icons/#{v}.pdf';"
 }.join(" ") + " }"
 system( ENV['DIALOG'], "images", "--register", icon_plist )
 
