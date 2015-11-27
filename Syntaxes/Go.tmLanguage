@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string>Go allows any Unicode character to be used in identifiers, so our identifier regex is: \b([[:alpha:]_]+[[:alnum:]_]*)\b
+	<string>Go allows any Unicode character to be used in identifiers, so our identifier regex is: \b([[:alpha:]_]+\w*)\b
 	cf. The Go Programming Language Specification &lt;http://golang.org/doc/go_spec.html&gt;</string>
 	<key>fileTypes</key>
 	<array>
@@ -35,7 +35,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^[[:blank:]]*(import)\b\s+</string>
+			<string>^\s*(import)\b\s+</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -94,7 +94,7 @@
 		<key>access</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=\.)[[:alpha:]_][[:alnum:]_]*\b(?!\s*\()</string>
+			<string>(?&lt;=\.)[[:alpha:]_]\w*\b(?!\s*\()</string>
 			<key>name</key>
 			<string>variable.other.dot-access.go</string>
 		</dict>
@@ -278,7 +278,7 @@
 			<key>comment</key>
 			<string>This is kinda hacky, in order to get the 'var' scoped the right way again.</string>
 			<key>match</key>
-			<string>(?&lt;=\s|\[\])([[:upper:]][[:alnum:]_]*)(?=\W+)</string>
+			<string>(?&lt;=\s|\[\])([[:upper:]]\w*)(?=\W+)</string>
 			<key>name</key>
 			<string>variable.other.exported.go</string>
 		</dict>
@@ -414,7 +414,7 @@
                 (?: (?= \s ) (?:(?&lt;=else|new|return) | (?&lt;!\w)) (\s+) )?
                 (\b
                     (?!(for|if|else|switch|return)\s*\()
-                    (?:[[:alpha:]_][[:alnum:]_]*+\b)            # method name
+                    (?:[[:alpha:]_]\w*+\b)            # method name
                 )
                 \s*(\()
             </string>
@@ -439,7 +439,7 @@
 							<array>
 								<dict>
 									<key>match</key>
-									<string>[[:alpha:]_][[:alnum:]_]*</string>
+									<string>[[:alpha:]_]\w*</string>
 									<key>name</key>
 									<string>variable.other.go</string>
 								</dict>
@@ -449,7 +449,7 @@
 					<key>comment</key>
 					<string>This matches the 'var x' style of variable declaration.</string>
 					<key>match</key>
-					<string>^[[:blank:]]*(var)\s+((?:[[:alpha:]_][[:alnum:]_]*)(?:,\s+[[:alpha:]_][[:alnum:]_]*)*)</string>
+					<string>^\s*(var)\s+((?:[[:alpha:]_]\w*)(?:,\s+[[:alpha:]_]\w*)*)</string>
 					<key>name</key>
 					<string>meta.initialization.explicit.go</string>
 				</dict>
@@ -462,7 +462,7 @@
 							<array>
 								<dict>
 									<key>match</key>
-									<string>[[:alpha:]_][[:alnum:]_]*</string>
+									<string>[[:alpha:]_]\w*</string>
 									<key>name</key>
 									<string>variable.other.go</string>
 								</dict>
@@ -477,7 +477,7 @@
 					<key>comment</key>
 					<string>This matches the 'x :=' style of variable declaration.</string>
 					<key>match</key>
-					<string>((?:[[:alpha:]_][[:alnum:]_]*)(?:\s*,\s+[[:alpha:]_][[:alnum:]_]*)*)\s*(:=)</string>
+					<string>((?:[[:alpha:]_]\w*)(?:\s*,\s+[[:alpha:]_]\w*)*)\s*(:=)</string>
 					<key>name</key>
 					<string>meta.initialization.short.go</string>
 				</dict>
@@ -513,7 +513,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)\b</string>
+					<string>\b((0(x|X)[0-9a-fA-F]*)|((\d+\.?\d*)|(\.\d+))((e|E)(\+|-)?\d+)?)\b</string>
 					<key>name</key>
 					<string>constant.numeric.go</string>
 				</dict>
@@ -529,11 +529,11 @@
 		<dict>
 			<key>begin</key>
 			<string>(?x)
-    	            (^[[:blank:]]*(func)\s*
-    	             (?: ([[:alpha:]_][[:alnum:]_]*)? )          # name of function is optional
-    	             (?: \( ((?:[\[\]\w\d\s\/,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \) )             # required braces for parameters (even if empty)
+    	            (^\s*(func)\s*
+    	             ([[:alpha:]_]\w*)?                                            # name of function is optional
+    	             \( ((?:[\[\]\w\d\s\/,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \)        # required braces for parameters (even if empty)
     	             \s*
-    	             (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?             # optional return types, optionally within braces
+    	             (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?  # optional return types, optionally within braces
                     )
     	    </string>
 			<key>beginCaptures</key>
@@ -563,7 +563,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>[[:alpha:]_]\w*</string>
 							<key>name</key>
 							<string>variable.parameter.go</string>
 						</dict>
@@ -579,7 +579,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>[[:alpha:]_]\w*</string>
 							<key>name</key>
 							<string>storage.type.return-type.go</string>
 						</dict>
@@ -619,12 +619,12 @@
     	            (
                      (func)\s*
     	             (
-    	             (?: \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)\s+ )                # receiver variable declarations, in brackets
-    	             (?: ([[:alpha:]_][[:alnum:]_]*)? )          # name of function is optional
+    	             \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)\s+        # receiver variable declarations, in brackets
+    	             ([[:alpha:]_]\w*)?                                            # name of function is optional
     	             )
-    	             (?: \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \) )               # required braces for parameters (even if empty)
+    	             \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \)          # required braces for parameters (even if empty)
     	             \s*
-    	             (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?             # optional return types, optionally within braces
+    	             (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?  # optional return types, optionally within braces
                     )
     	    </string>
 			<key>beginCaptures</key>
@@ -650,7 +650,7 @@
 					<array>
 						<dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>[[:alpha:]_]\w*</string>
 							<key>name</key>
 							<string>variable.other.receiver.go</string>
 						</dict>
@@ -667,7 +667,7 @@
 					<array>
 						<dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>[[:alpha:]_]\w*</string>
 							<key>name</key>
 							<string>variable.parameter.go</string>
 						</dict>
@@ -679,7 +679,7 @@
 					<array>
 						<dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>[[:alpha:]_]\w*</string>
 							<key>name</key>
 							<string>storage.type.return-type.go</string>
 						</dict>
@@ -769,12 +769,12 @@
 				<dict>
 					<key>match</key>
 					<string>(?x)%
-                        (\d+\$)?                                    # field (argument #)
-                        [#0\- +']*                                  # flags
-                        [,;:_]?                                     # separator character (AltiVec)
-                        ((-?\d+)|\*(-?\d+\$)?)?                     # minimum field width
-                        (\.((-?\d+)|\*(-?\d+\$)?)?)?                # precision
-                        [diouxXDOUeEfFgGaAcCsSpnvtTbyYhHmMzZq%]      # conversion type
+                        (\d+\$)?                                 # field (argument #)
+                        [#0\- +']*                              # flags
+                        [,;:_]?                                  # separator character (AltiVec)
+                        ((-?\d+)|\*(-?\d+\$)?)?                  # minimum field width
+                        (\.((-?\d+)|\*(-?\d+\$)?)?)?             # precision
+                        [diouxXDOUeEfFgGaAcCsSpnvtTbyYhHmMzZq%]  # conversion type
                     </string>
 					<key>name</key>
 					<string>constant.other.placeholder.go</string>
