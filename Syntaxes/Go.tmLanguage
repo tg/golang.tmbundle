@@ -280,7 +280,7 @@
 			<key>match</key>
 			<string>(?&lt;=\s|\[\])([[:upper:]][[:alnum:]_]*)(?=\W+)</string>
 			<key>name</key>
-			<string>variable.exported.go</string>
+			<string>variable.other.exported.go</string>
 		</dict>
 		<key>fn_parens</key>
 		<dict>
@@ -558,10 +558,14 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
 							<key>match</key>
 							<string>[[:alpha:]_][[:alnum:]_]*</string>
 							<key>name</key>
-							<string>variable.parameters.go</string>
+							<string>variable.parameter.go</string>
 						</dict>
 					</array>
 				</dict>
@@ -570,16 +574,20 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
 							<key>match</key>
 							<string>[[:alpha:]_][[:alnum:]_]*</string>
 							<key>name</key>
-							<string>variable.return-types.go</string>
+							<string>storage.type.return-type.go</string>
 						</dict>
 					</array>
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>We scope all parenthesized alpha-numeric text as variable.parameters.go and variable.return-types.go, which is a bit lazy, as some of it is storage.type.</string>
+			<string>We scope all parenthesized alpha-numeric text as variable.parameter.go and storage.type.return-type.go, which is a bit lazy, as some of it is storage.type.</string>
 			<key>end</key>
 			<string>(?&lt;=\})</string>
 			<key>name</key>
@@ -644,7 +652,7 @@
 							<key>match</key>
 							<string>[[:alpha:]_][[:alnum:]_]*</string>
 							<key>name</key>
-							<string>variable.receiver.go</string>
+							<string>variable.other.receiver.go</string>
 						</dict>
 					</array>
 				</dict>
@@ -661,7 +669,7 @@
 							<key>match</key>
 							<string>[[:alpha:]_][[:alnum:]_]*</string>
 							<key>name</key>
-							<string>variable.parameters.go</string>
+							<string>variable.parameter.go</string>
 						</dict>
 					</array>
 				</dict>
@@ -673,7 +681,7 @@
 							<key>match</key>
 							<string>[[:alpha:]_][[:alnum:]_]*</string>
 							<key>name</key>
-							<string>variable.return-types.go</string>
+							<string>storage.type.return-type.go</string>
 						</dict>
 					</array>
 				</dict>
@@ -871,7 +879,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.raw.go</string>
+					<string>string.other.raw.go</string>
 				</dict>
 			</array>
 		</dict>
