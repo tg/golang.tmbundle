@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string>Go allows any Unicode character to be used in identifiers, so our identifier regex is: \b([[:alpha:]_]+[[:alnum:]_]*)\b
+	<string>Go allows any Unicode character to be used in identifiers, so our identifier regex is: \b([[:alpha:]_]+\w*)\b
 	cf. The Go Programming Language Specification &lt;http://golang.org/doc/go_spec.html&gt;</string>
 	<key>fileTypes</key>
 	<array>
@@ -35,7 +35,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^[[:blank:]]*(import)\b\s+</string>
+			<string>^\s*(import)\b\s+</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -94,7 +94,7 @@
 		<key>access</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=\.)[[:alpha:]_][[:alnum:]_]*\b(?!\s*\()</string>
+			<string>(?&lt;=\.)[[:alpha:]_]\w*\b(?!\s*\()</string>
 			<key>name</key>
 			<string>variable.other.dot-access.go</string>
 		</dict>
@@ -278,9 +278,9 @@
 			<key>comment</key>
 			<string>This is kinda hacky, in order to get the 'var' scoped the right way again.</string>
 			<key>match</key>
-			<string>(?&lt;=\s|\[\])([[:upper:]][[:alnum:]_]*)(?=\W+)</string>
+			<string>(?&lt;=\s|\[\])([[:upper:]]\w*)(?=\W+)</string>
 			<key>name</key>
-			<string>variable.exported.go</string>
+			<string>variable.other.exported.go</string>
 		</dict>
 		<key>fn_parens</key>
 		<dict>
@@ -411,13 +411,13 @@
 			</dict>
 			<key>match</key>
 			<string>(?x)
-                (?: (?= \s ) (?:(?&lt;=else|new|return) | (?&lt;!\w)) (\s+) )?
-                (\b
-                    (?!(for|if|else|switch|return)\s*\()
-                    (?:[[:alpha:]_][[:alnum:]_]*+\b)            # method name
-                )
-                \s*(\()
-            </string>
+			    (?: (?= \s ) (?:(?&lt;=else|new|return) | (?&lt;!\w)) (\s+) )?
+			    (\b
+			        (?!(for|if|else|switch|return)\s*\()
+			        (?:[[:alpha:]_]\w*+\b)            # method name
+			    )
+			    \s*(\()
+			</string>
 			<key>name</key>
 			<string>meta.function-call.go</string>
 		</dict>
@@ -439,9 +439,25 @@
 							<array>
 								<dict>
 									<key>match</key>
-									<string>[[:alpha:]_][[:alnum:]_]*</string>
+									<string>[[:alpha:]_]\w*</string>
 									<key>name</key>
 									<string>variable.other.go</string>
+								</dict>
+							</array>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#keywords</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>[[:alpha:]_]\w*\b(?!\.)</string>
+									<key>name</key>
+									<string>support.type.go</string>
 								</dict>
 							</array>
 						</dict>
@@ -449,7 +465,7 @@
 					<key>comment</key>
 					<string>This matches the 'var x' style of variable declaration.</string>
 					<key>match</key>
-					<string>^[[:blank:]]*(var)\s+((?:[[:alpha:]_][[:alnum:]_]*)(?:,\s+[[:alpha:]_][[:alnum:]_]*)*)</string>
+					<string>^\s*(var)\s+((?:[[:alpha:]_]\w*)(?:,\s+[[:alpha:]_]\w*)*)\s*(.*)\s*(?:=|$)</string>
 					<key>name</key>
 					<string>meta.initialization.explicit.go</string>
 				</dict>
@@ -462,7 +478,7 @@
 							<array>
 								<dict>
 									<key>match</key>
-									<string>[[:alpha:]_][[:alnum:]_]*</string>
+									<string>[[:alpha:]_]\w*</string>
 									<key>name</key>
 									<string>variable.other.go</string>
 								</dict>
@@ -473,11 +489,27 @@
 							<key>name</key>
 							<string>keyword.operator.go</string>
 						</dict>
+						<key>3</key>
+						<dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#keywords</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>[[:alpha:]_]\w*\b(?!\.)</string>
+									<key>name</key>
+									<string>support.type.go</string>
+								</dict>
+							</array>
+						</dict>
 					</dict>
 					<key>comment</key>
 					<string>This matches the 'x :=' style of variable declaration.</string>
 					<key>match</key>
-					<string>((?:[[:alpha:]_][[:alnum:]_]*)(?:\s*,\s+[[:alpha:]_][[:alnum:]_]*)*)\s*(:=)</string>
+					<string>((?:[[:alpha:]_]\w*)(?:\s*,\s+[[:alpha:]_]\w*)*)\s*(:=)(?:\s*([[:alpha:]_]\w*)\s*\{)?</string>
 					<key>name</key>
 					<string>meta.initialization.short.go</string>
 				</dict>
@@ -513,7 +545,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)\b</string>
+					<string>\b((0(x|X)[0-9a-fA-F]*)|((\d+\.?\d*)|(\.\d+))((e|E)(\+|-)?\d+)?)\b</string>
 					<key>name</key>
 					<string>constant.numeric.go</string>
 				</dict>
@@ -529,13 +561,16 @@
 		<dict>
 			<key>begin</key>
 			<string>(?x)
-    	            (^[[:blank:]]*(func)\s*
-    	             (?: ([[:alpha:]_][[:alnum:]_]*)? )          # name of function is optional
-    	             (?: \( ((?:[\[\]\w\d\s\/,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \) )             # required braces for parameters (even if empty)
-    	             \s*
-    	             (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?             # optional return types, optionally within braces
-                    )
-    	    </string>
+			        (^\s*(func)\s*
+			         ([[:alpha:]_]\w*)?                                            # name of function is optional
+			         \( ((?:[\[\]\w\d\s\/,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \)        # required braces for parameters (even if empty)
+			         \s*
+			         (?:                                                           # optional return types
+			          (?: \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \) ) |  # within braces
+			          (?: ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) )          # without braces (just type)
+			         )?
+			        )
+			</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -558,10 +593,26 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.go</string>
+								</dict>
+							</dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>(?&lt;=[\(,])\s*([[:alpha:]_]\w*)</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[[:alpha:]_]\w*\b(?!\.)</string>
 							<key>name</key>
-							<string>variable.parameters.go</string>
+							<string>support.type.parameter.go</string>
 						</dict>
 					</array>
 				</dict>
@@ -570,16 +621,48 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.return.go</string>
+								</dict>
+							</dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>(?&lt;=[\(,])\s*([[:alpha:]_]\w*)</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[[:alpha:]_]\w*\b(?!\.)</string>
 							<key>name</key>
-							<string>variable.return-types.go</string>
+							<string>support.type.return.go</string>
+						</dict>
+					</array>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[[:alpha:]_]\w*\b(?!\.)</string>
+							<key>name</key>
+							<string>support.type.return.go</string>
 						</dict>
 					</array>
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>We scope all parenthesized alpha-numeric text as variable.parameters.go and variable.return-types.go, which is a bit lazy, as some of it is storage.type.</string>
+			<string>We scope all parenthesized alpha-numeric text as variable.parameter.go and storage.type.return.go, which is a bit lazy, as some of it is storage.type.</string>
 			<key>end</key>
 			<string>(?&lt;=\})</string>
 			<key>name</key>
@@ -608,17 +691,20 @@
 		<dict>
 			<key>begin</key>
 			<string>(?x)
-    	            (
-                     (func)\s*
-    	             (
-    	             (?: \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)\s+ )                # receiver variable declarations, in brackets
-    	             (?: ([[:alpha:]_][[:alnum:]_]*)? )          # name of function is optional
-    	             )
-    	             (?: \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \) )               # required braces for parameters (even if empty)
-    	             \s*
-    	             (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?             # optional return types, optionally within braces
-                    )
-    	    </string>
+			        (
+			         (func)\s*
+			         (
+			         \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)\s+        # receiver variable declarations, in brackets
+			         ([[:alpha:]_]\w*)?                                            # name of function is optional
+			         )
+			         \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \)          # required braces for parameters (even if empty)
+			         \s*
+			         (?:                                                           # optional return types
+			          (?: \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \) ) |  # within braces
+			          (?: ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) )          # without braces (just type)
+			         )?
+			        )
+			</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -641,10 +727,26 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.other.receiver.go</string>
+								</dict>
+							</dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>(?&lt;=[\(,])\s*([[:alpha:]_]\w*)</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[[:alpha:]_]\w*</string>
 							<key>name</key>
-							<string>variable.receiver.go</string>
+							<string>support.type.receiver.go</string>
 						</dict>
 					</array>
 				</dict>
@@ -658,10 +760,26 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.go</string>
+								</dict>
+							</dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>(?&lt;=[\(,])\s*([[:alpha:]_]\w*)</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[[:alpha:]_]\w*\b(?!\.)</string>
 							<key>name</key>
-							<string>variable.parameters.go</string>
+							<string>support.type.parameter.go</string>
 						</dict>
 					</array>
 				</dict>
@@ -670,10 +788,42 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.return.go</string>
+								</dict>
+							</dict>
 							<key>match</key>
-							<string>[[:alpha:]_][[:alnum:]_]*</string>
+							<string>(?&lt;=[\(,])\s*([[:alpha:]_]\w*)</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[[:alpha:]_]\w*\b(?!\.)</string>
 							<key>name</key>
-							<string>variable.return-types.go</string>
+							<string>support.type.return.go</string>
+						</dict>
+					</array>
+				</dict>
+				<key>8</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[[:alpha:]_]\w*\b(?!\.)</string>
+							<key>name</key>
+							<string>support.type.return.go</string>
 						</dict>
 					</array>
 				</dict>
@@ -761,13 +911,13 @@
 				<dict>
 					<key>match</key>
 					<string>(?x)%
-                        (\d+\$)?                                    # field (argument #)
-                        [#0\- +']*                                  # flags
-                        [,;:_]?                                     # separator character (AltiVec)
-                        ((-?\d+)|\*(-?\d+\$)?)?                     # minimum field width
-                        (\.((-?\d+)|\*(-?\d+\$)?)?)?                # precision
-                        [diouxXDOUeEfFgGaAcCsSpnvtTbyYhHmMzZq%]      # conversion type
-                    </string>
+					    (\d+\$)?                                 # field (argument #)
+					    [#0\- +']*                              # flags
+					    [,;:_]?                                  # separator character (AltiVec)
+					    ((-?\d+)|\*(-?\d+\$)?)?                  # minimum field width
+					    (\.((-?\d+)|\*(-?\d+\$)?)?)?             # precision
+					    [diouxXDOUeEfFgGaAcCsSpnvtTbyYhHmMzZq%]  # conversion type
+					</string>
 					<key>name</key>
 					<string>constant.other.placeholder.go</string>
 				</dict>
@@ -871,7 +1021,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.raw.go</string>
+					<string>string.other.raw.go</string>
 				</dict>
 			</array>
 		</dict>
