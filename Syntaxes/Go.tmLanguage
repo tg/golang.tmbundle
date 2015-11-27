@@ -445,11 +445,27 @@
 								</dict>
 							</array>
 						</dict>
+						<key>3</key>
+						<dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#keywords</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>[[:alpha:]_]\w*\b(?!\.)</string>
+									<key>name</key>
+									<string>support.type.go</string>
+								</dict>
+							</array>
+						</dict>
 					</dict>
 					<key>comment</key>
 					<string>This matches the 'var x' style of variable declaration.</string>
 					<key>match</key>
-					<string>^\s*(var)\s+((?:[[:alpha:]_]\w*)(?:,\s+[[:alpha:]_]\w*)*)</string>
+					<string>^\s*(var)\s+((?:[[:alpha:]_]\w*)(?:,\s+[[:alpha:]_]\w*)*)\s*(.*)\s*(?:=|$)</string>
 					<key>name</key>
 					<string>meta.initialization.explicit.go</string>
 				</dict>
@@ -473,11 +489,27 @@
 							<key>name</key>
 							<string>keyword.operator.go</string>
 						</dict>
+						<key>3</key>
+						<dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#keywords</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>[[:alpha:]_]\w*\b(?!\.)</string>
+									<key>name</key>
+									<string>support.type.go</string>
+								</dict>
+							</array>
+						</dict>
 					</dict>
 					<key>comment</key>
 					<string>This matches the 'x :=' style of variable declaration.</string>
 					<key>match</key>
-					<string>((?:[[:alpha:]_]\w*)(?:\s*,\s+[[:alpha:]_]\w*)*)\s*(:=)</string>
+					<string>((?:[[:alpha:]_]\w*)(?:\s*,\s+[[:alpha:]_]\w*)*)\s*(:=)(?:\s*([[:alpha:]_]\w*)\s*\{)?</string>
 					<key>name</key>
 					<string>meta.initialization.short.go</string>
 				</dict>
