@@ -411,13 +411,13 @@
 			</dict>
 			<key>match</key>
 			<string>(?x)
-                (?: (?= \s ) (?:(?&lt;=else|new|return) | (?&lt;!\w)) (\s+) )?
-                (\b
-                    (?!(for|if|else|switch|return)\s*\()
-                    (?:[[:alpha:]_]\w*+\b)            # method name
-                )
-                \s*(\()
-            </string>
+			    (?: (?= \s ) (?:(?&lt;=else|new|return) | (?&lt;!\w)) (\s+) )?
+			    (\b
+			        (?!(for|if|else|switch|return)\s*\()
+			        (?:[[:alpha:]_]\w*+\b)            # method name
+			    )
+			    \s*(\()
+			</string>
 			<key>name</key>
 			<string>meta.function-call.go</string>
 		</dict>
@@ -529,13 +529,13 @@
 		<dict>
 			<key>begin</key>
 			<string>(?x)
-    	            (^\s*(func)\s*
-    	             ([[:alpha:]_]\w*)?                                            # name of function is optional
-    	             \( ((?:[\[\]\w\d\s\/,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \)        # required braces for parameters (even if empty)
-    	             \s*
-    	             (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?  # optional return types, optionally within braces
-                    )
-    	    </string>
+			        (^\s*(func)\s*
+			         ([[:alpha:]_]\w*)?                                            # name of function is optional
+			         \( ((?:[\[\]\w\d\s\/,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \)        # required braces for parameters (even if empty)
+			         \s*
+			         (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?  # optional return types, optionally within braces
+			        )
+			</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -616,17 +616,17 @@
 		<dict>
 			<key>begin</key>
 			<string>(?x)
-    	            (
-                     (func)\s*
-    	             (
-    	             \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)\s+        # receiver variable declarations, in brackets
-    	             ([[:alpha:]_]\w*)?                                            # name of function is optional
-    	             )
-    	             \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \)          # required braces for parameters (even if empty)
-    	             \s*
-    	             (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?  # optional return types, optionally within braces
-                    )
-    	    </string>
+			        (
+			         (func)\s*
+			         (
+			         \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)\s+        # receiver variable declarations, in brackets
+			         ([[:alpha:]_]\w*)?                                            # name of function is optional
+			         )
+			         \( ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? \)          # required braces for parameters (even if empty)
+			         \s*
+			         (?: \(? ((?:[\[\]\w\d\s,._*&amp;&lt;&gt;-]|(?:interface\{\}))*) \)? )?  # optional return types, optionally within braces
+			        )
+			</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -769,13 +769,13 @@
 				<dict>
 					<key>match</key>
 					<string>(?x)%
-                        (\d+\$)?                                 # field (argument #)
-                        [#0\- +']*                              # flags
-                        [,;:_]?                                  # separator character (AltiVec)
-                        ((-?\d+)|\*(-?\d+\$)?)?                  # minimum field width
-                        (\.((-?\d+)|\*(-?\d+\$)?)?)?             # precision
-                        [diouxXDOUeEfFgGaAcCsSpnvtTbyYhHmMzZq%]  # conversion type
-                    </string>
+					    (\d+\$)?                                 # field (argument #)
+					    [#0\- +']*                              # flags
+					    [,;:_]?                                  # separator character (AltiVec)
+					    ((-?\d+)|\*(-?\d+\$)?)?                  # minimum field width
+					    (\.((-?\d+)|\*(-?\d+\$)?)?)?             # precision
+					    [diouxXDOUeEfFgGaAcCsSpnvtTbyYhHmMzZq%]  # conversion type
+					</string>
 					<key>name</key>
 					<string>constant.other.placeholder.go</string>
 				</dict>
