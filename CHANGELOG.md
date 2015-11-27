@@ -2,6 +2,15 @@ Planned:
 - Rework some snippets, like a single import without an alias
 - Add support for all go tools like fix, vet, oracle
 
+### 3.3.0 / 2015-11-27
+- [Hand crafted, beautiful icons that work on HiDPI and lower resolutions @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/6eac77254101eac2d325bc729b633f243865d87b)
+- [Fix regex scope identifiers to allowed ones @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/88bbe651383a8eeaca1f0b38d0c625bbe4dc427b)
+- [Simplify and shorten regexes @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/f0705089034f353f65ce3b0a2544296c5121bd2e)
+- [Uniform regex indentation @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/4fd348f65fc9ddcb48cdc6437a00f10125c68192)
+- [Better type marking in instances like 'var x Type' or 'x := Type{} @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/a8328ab956a3f43b4aab72f860cc1eed3a7ecd1e)
+- [Mark types in function declarations @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/d2b0efdfc1206d72c058875d2956f9052ee81a59)
+- Update README to reflect this branch's status as the TextMate default
+
 ### 3.2.1 / 2015-10-18
 - [Changed icons for completion menu to HiDPI version @msoap](https://github.com/syscrusher/golang.tmbundle/commit/6201a07c52595cc48f60691eedca973a8121152a)
 - [New path to godoc @msoap](https://github.com/syscrusher/golang.tmbundle/commit/f7e24e69d6d099597757754c7097670bd76fac31)

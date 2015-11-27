@@ -1,16 +1,17 @@
-## golang.tmbundle v3.2.1
+## golang.tmbundle v3.3.0
 (a TextMate 2 bundle for the go programming language)
 
 ### Installation
-TextMate by default will detect .go files and load [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle). This is a fork with additional improvements merged from around the community.
+TextMate should detect .go files and load this bundle. This bundle is a fork from [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle) with additional improvements merged from around the community.
 
-Big changes from the default version:
+Changes from the original version (see full changelog for more details):
 - Support for goimports and golint (thanks [fmccann](https://github.com/fmccann))
+- Improved syntax highlighting (thanks [nanoant](https://github.com/nanoant))
 - Users can supply commands via ENV variables (TM\_GO\_DYNAMIC\_GOPATH, TM\_GO\_DYNAMIC\_PKG, TM\_GO\_DYNAMIC\_PKG\_PATH). The bundle will consult these commands if defined to dynamically change the gopath or package based on the current directory. (thanks [fmccann](https://github.com/fmccann))
 - all non-run go commands operate on the current directory instead of per file if the package is not defined dynamically. (thanks [tg](https://github.com/tg)).
 - run and build work on unsaved files (thanks [tg](https://github.com/tg))
 - added print, println, printf, and fprintf snippets (thanks [jish](https://github.com/jish))
-- HiDPI completion icons (thanks [msoap](https://github.com/syscrusher/golang.tmbundle/commits/master?author=msoap))
+- HiDPI completion icons (thanks [nanoant](https://github.com/nanoant))
 - bugfixes (thanks everyone!)
 
 To install this bundle manually, open a Terminal window and do:
