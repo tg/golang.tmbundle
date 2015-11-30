@@ -724,7 +724,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.go.full-name</string>
+					<string>entity.name.function.full-name.go</string>
 				</dict>
 				<key>4</key>
 				<dict>
@@ -757,7 +757,7 @@
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.go.name</string>
+					<string>entity.name.function.go</string>
 				</dict>
 				<key>6</key>
 				<dict>
