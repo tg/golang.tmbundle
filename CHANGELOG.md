@@ -1,6 +1,28 @@
 Planned:
 - Rework some snippets, like a single import without an alias
-- Add support for all go tools like fix, vet, lint, oracle
+- Add support for all go tools like fix, vet, oracle
+
+### 3.3.0 / 2015-11-27
+- [Hand crafted, beautiful icons that work on HiDPI and lower resolutions @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/6eac77254101eac2d325bc729b633f243865d87b)
+- [Fix regex scope identifiers to allowed ones @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/88bbe651383a8eeaca1f0b38d0c625bbe4dc427b)
+- [Simplify and shorten regexes @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/f0705089034f353f65ce3b0a2544296c5121bd2e)
+- [Uniform regex indentation @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/4fd348f65fc9ddcb48cdc6437a00f10125c68192)
+- [Better type marking in instances like 'var x Type' or 'x := Type{} @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/a8328ab956a3f43b4aab72f860cc1eed3a7ecd1e)
+- [Mark types in function declarations @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/d2b0efdfc1206d72c058875d2956f9052ee81a59)
+- Update README to reflect this branch's status as the TextMate default
+
+### 3.2.1 / 2015-10-18
+- [Changed icons for completion menu to HiDPI version @msoap](https://github.com/syscrusher/golang.tmbundle/commit/6201a07c52595cc48f60691eedca973a8121152a)
+- [New path to godoc @msoap](https://github.com/syscrusher/golang.tmbundle/commit/f7e24e69d6d099597757754c7097670bd76fac31)
+- [FIx duplicate `go get` in imports statement](https://github.com/syscrusher/golang.tmbundle/commit/0fa56a57877e7e947ac338c34438e3c906e430aa)
+
+###3.2.0 / 2015-09-18
+- [Support for dynamically determining gopath, package name, and package path @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/26538901bcb6253660bf4fab52dbc336ed984e2c)
+- [Support for golint and goimports @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/26538901bcb6253660bf4fab52dbc336ed984e2c)
+- [Display package name when running command against package name @fmccann](https://github.com/syscrusher/golang.tmbundle/commit/26538901bcb6253660bf4fab52dbc336ed984e2c)
+- [Fmt updates document without saving the current version @tg](https://github.com/syscrusher/golang.tmbundle/commit/998d17a9f8024b2c6571f242d2d93f44723c3e87)
+- [Automatically format documents on save @tg](https://github.com/syscrusher/golang.tmbundle/commit/8e6a71b1f8e986b7644c3286c1f4c538dc1345ec)
+- [Remove leading path separator (:) from GOPATH @tg](https://github.com/syscrusher/golang.tmbundle/commit/cf4a25062bf453ca1a46a4ad7ef7ff01740f350b)
 
 ###3.1.0 / 2015-02-04
 - [Run all non-run commands against current directory @tg](https://github.com/syscrusher/golang.tmbundle/commit/d3f09ee3bbe5fba76964e1bdc23e7d7247b733ee)
@@ -106,6 +128,6 @@ Imported some community additions and bugfixes to bring compatibility with OS X 
 - Variable initialization is FINALLY matching correctly. Should work for every style & number of variables, even in-line in loop statements.
 - Matches exported variable names correctly (i.e. those beginning with an uppercase letter).
 - Dot-accessed variable match no longer consumes the preceding '.' character.
- 
+
 ###0.1.0 / 2009-11-14
 - Initial Revision
