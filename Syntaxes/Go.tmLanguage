@@ -27,6 +27,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#type_declaration</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#basic_things</string>
 		</dict>
 		<dict>
@@ -720,7 +724,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.go.full-name</string>
+					<string>entity.name.function.full-name.go</string>
 				</dict>
 				<key>4</key>
 				<dict>
@@ -753,7 +757,7 @@
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.go.name</string>
+					<string>entity.name.function.go</string>
 				</dict>
 				<key>6</key>
 				<dict>
@@ -1024,6 +1028,51 @@
 					<string>string.other.raw.go</string>
 				</dict>
 			</array>
+		</dict>
+		<key>type_declaration</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.go</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.exported.go</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.private.go</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[[:alpha:]_]\w*\b(?!\.)</string>
+							<key>name</key>
+							<string>support.type.go</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?x)
+			         ^\s*(type)\s*
+			          (?:([[:upper:]]\w*)|([[:alpha:]_]\w*))           # name of type
+			          ((?:[\[\]\w\d\s\/,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? # other type
+			</string>
+			<key>name</key>
+			<string>meta.type.go</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
